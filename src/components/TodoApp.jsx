@@ -5,6 +5,11 @@ const TodoApp = () => {
 
     const [todo,setTodo] = useState([])
     const [input,setInput] =useState('')
+    const values ={ 
+        id:Math.floor(Math.random() *1000 )  , 
+        isCompleted:false ,
+        value:input 
+    }
 
     
     const  changeHandler=(e)=>{
@@ -15,10 +20,9 @@ const TodoApp = () => {
     }
 
     const submitHandler=()=>{
-        const values ={id:Math.floor(Math.random() *1000 )  ,isCompleted:false ,value:input }
        
         setTodo([...todo,values])
-        console.log(todo);
+        setInput('')
 
 
     }
@@ -56,6 +60,29 @@ const TodoApp = () => {
     }
 
 
+    const onEditHandler=(id,text)=>{
+
+
+        console.log(id,text);
+
+        const index = todo.findIndex((item)=>{
+            return item.id === id
+        })
+        
+        
+        const updatedTodo= {...todo[index]  }
+
+        updatedTodo.value = text
+
+        const todos =[...todo]
+
+        todos[index] = updatedTodo
+
+        setTodo(todos)
+
+    }
+
+
   return (
     <div>
 
@@ -65,7 +92,9 @@ const TodoApp = () => {
         <button onClick={ submitHandler}> Add </button>
 
         </div>
-    <TodoList todo={ todo} deleteHandler={deleteHandler} completeHandler={completeHandler} />
+
+
+     <TodoList todo={ todo} deleteHandler={deleteHandler} completeHandler={completeHandler} onEditHandler={onEditHandler} />
     </div>
   )
 }
