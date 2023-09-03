@@ -1,0 +1,9 @@
+.complete{
+    color:'gray',
+
+}
+
+.not-complete{
+    color: red;
+    text-decoration: line-through;
+}
