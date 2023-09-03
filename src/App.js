@@ -7,7 +7,7 @@ function App() {
     <h1>Todo List App</h1>
     <div className="app-container">
 
-    <Navbar/>
+  
     <TodoApp/>
 
     </div>

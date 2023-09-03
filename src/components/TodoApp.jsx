@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TodoList from './TodoList'
+import Navbar from './Navbar'
 
 const TodoApp = () => {
 
     const [todo,setTodo] = useState([])
     const [input,setInput] =useState('')
+
+    const [filterData,setFilterData] = useState([])
+
+    const [selectedOption,setSelectedOption] = useState('all')
+
+
+    useEffect(()=>{
+        handleFilterTodos(selectedOption.value)
+    },[todo,selectedOption] )
+
     const values ={ 
         id:Math.floor(Math.random() *1000 )  , 
         isCompleted:false ,
@@ -63,7 +74,7 @@ const TodoApp = () => {
     const onEditHandler=(id,text)=>{
 
 
-        console.log(id,text);
+        
 
         const index = todo.findIndex((item)=>{
             return item.id === id
@@ -83,8 +94,50 @@ const TodoApp = () => {
     }
 
 
+    const handleFilterTodos=(value)=>{
+
+
+        switch (value) {
+            case 'Completed':{
+
+                const compeltedTodos = todo.filter((item)=>{
+                    return item.isCompleted === true
+                })
+
+                setFilterData(compeltedTodos)
+
+            }
+                
+                break;
+
+                case 'NotCompleted' :{
+
+                    const notCompletedTodos = todo.filter((item)=>{
+                        return item.isCompleted === false
+                    })
+
+                    setFilterData(notCompletedTodos)
+                }
+                break;
+        
+            default:
+                return setFilterData(todo)
+                break;
+        }
+    }
+
+    
+    const changeSelectHandler=(e)=>{
+      
+        setSelectedOption(e)
+        handleFilterTodos(e.value)
+    }
+
+
   return (
     <div>
+
+    <Navbar selectedOption={selectedOption} changeSelectHandler={changeSelectHandler} />
 
         <div>
 
@@ -93,8 +146,7 @@ const TodoApp = () => {
 
         </div>
 
-
-     <TodoList todo={ todo} deleteHandler={deleteHandler} completeHandler={completeHandler} onEditHandler={onEditHandler} />
+     <TodoList todo={ filterData} deleteHandler={deleteHandler} completeHandler={completeHandler} onEditHandler={onEditHandler} />
     </div>
   )
 }
