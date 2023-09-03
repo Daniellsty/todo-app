@@ -1,28 +1,26 @@
 body {
-  margin: 0;
   background-color: #e2e8f0;
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
+  text-align: center;
+
+ 
 }
 
-
-.App{
-
+.app{
+  display: flex;
+  justify-content: center;
   margin-top: 100px;
-  width: 100vw;
+ 
+}
 
-  text-align: center;
+.todo{
+  width: 550px;
+  margin:0px  2%;
 }
 
 .app-container{
-
   border: 2px solid gray;
   border-radius: 5px;
-  max-width: 400px;
-  margin: 0 auto;
   background-color: white;
+  padding: 0 5%;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import TodoList from './TodoList'
 import Navbar from './Navbar'
-
+import './TodoApp.css'
 const TodoApp = () => {
 
     const [todo,setTodo] = useState([])
@@ -32,7 +32,9 @@ const TodoApp = () => {
 
     const submitHandler=()=>{
        
+        if (values.value === '') return
         setTodo([...todo,values])
+
         setInput('')
 
 
@@ -137,11 +139,11 @@ const TodoApp = () => {
   return (
     <div>
 
-    <Navbar selectedOption={selectedOption} changeSelectHandler={changeSelectHandler} />
+    <Navbar item={todo} selectedOption={selectedOption} changeSelectHandler={changeSelectHandler} />
 
-        <div>
+        <div className='todo-container'>
 
-        <input type="text" value={input} onChange={(e)=> changeHandler(e)} />
+        <input type="text" placeholder='add todos...' value={input} onChange={(e)=> changeHandler(e)} />
         <button onClick={ submitHandler}> Add </button>
 
         </div>

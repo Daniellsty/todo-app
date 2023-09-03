@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import style from  './TodoList.css'
 
 const TodoForm = ({submitHandler,values}) => {
   
@@ -22,9 +23,12 @@ const TodoForm = ({submitHandler,values}) => {
 
   return (
     <div>
-      <div>
+      <div className="todolist-container">
         <input type="text" ref={textInput} value={input} onChange={(e) => changeHandler(e)} />
-        <button onClick={updateTodo}> update </button>
+        <div className="buttons">
+        <button onClick={updateTodo}> Update </button>
+
+        </div>
       </div>
     </div>
   );

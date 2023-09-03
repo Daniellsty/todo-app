@@ -1,24 +1,11 @@
-.complete{
-    color:'gray',
-
-}
-
-.not-complete{
-    color: red;
-    text-decoration: line-through;
-}
-
-.todolist-container{
-
+.todo-container{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-.buttons{
     margin: 20px 0;
 }
-.buttons button{
-    margin: 0 0px 0 15px;
+
+.todo-container button{
+    
     color: #f4f3f8;
     background:#683ced ;
     border: none;
@@ -26,9 +13,14 @@
     border-radius: 3px;
     cursor: pointer;
 
+    transition-duration:  1s;
 }
 
-input{
+.todo-container button:hover{
+    transform: translateY(-5px);
+    color:#a5f3fc;
+}
+.todo-container input{
 
     padding:7px 5px;
     border-radius: 5px;
@@ -36,7 +28,7 @@ input{
 
 }
 
-input:focus{
+.todo-container input:focus{
     border: none;
     outline: none;
     border: 1px solid #683ced;

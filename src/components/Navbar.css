@@ -1,6 +1,22 @@
 .navbar{
-    width: 50%;
+    width: 100%;
     margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
 
 }
 
+.num-of-todo{
+    color: #ddd6fe;
+    background:#a78bfa ;
+    padding:5px 6px;
+    border-radius: 100%;
+}
+
+.title-todo{
+
+    text-transform:capitalize;
+    color: gray;
+}

@@ -19,11 +19,14 @@ const TodoList = ({ todo ,deleteHandler ,completeHandler,onEditHandler,values}) 
            
            {todo.map((item)=>{
               return (
-                  <div key={item.id}>
+                  <div key={item.id} className="todolist-container">
                       <p style={{color: item.isCompleted ? 'gray' :'red' ,textDecoration:item.isCompleted ?  'none' :'line-through' }}>{item.value}</p>
-                      <button onClick={(e)=> completeHandler(item.id)  } >complete</button>
-                      <button onClick={(e)=> deleteHandler(item.id) } >delete</button>
-                      <button onClick={()=> setEdit(item) }>edit</button>
+                      <div className="buttons">
+                      <button onClick={(e)=> completeHandler(item.id)  } >Complete</button>
+                      <button onClick={(e)=> deleteHandler(item.id) } >Delete</button>
+                      <button onClick={()=> setEdit(item) }>Edit</button>
+
+                      </div>
                      
                   </div>
               )
