@@ -13,4 +13,16 @@ body {
 .App{
 
   margin-top: 100px;
+  width: 100vw;
+
+  text-align: center;
+}
+
+.app-container{
+
+  border: 2px solid gray;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: white;
 }
